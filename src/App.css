@@ -3,6 +3,8 @@
   --orange: rgb(186, 93, 44);
   --blueish-gray: rgb(50, 77, 103);
   --blueish-gray-light: rgb(97, 125, 152);
+
+  --slider-padding: 48px;
 }
 
 body {
@@ -64,9 +66,12 @@ button:hover {
 .slider {
   position: relative;
 
-  padding: 0 48px;
+  padding: 0 var(--slider-padding);
   max-width: 700px;
+  height: 450px;
   margin: auto;
+
+  overflow: hidden;
 }
 
 .slider__button {
@@ -105,7 +110,30 @@ button:hover {
   transform: scaleX(-1);
 }
 
+.slider__element {
+  opacity: 0;
+  transition: 500ms;
+
+  pointer-events: none;
+}
+.slider__element--prev {
+  left: calc(-100% + var(--slider-padding));
+}
+.slider__element--current {
+  left: var(--slider-padding);
+  opacity: 1;
+  pointer-events: all;
+}
+.slider__element--next {
+  left: calc(100% + var(--slider-padding));
+}
+
 .person {
+  position: absolute;
+  top: 0;
+
+  width: calc(100% - 96px);
+
   text-align: center;
 }
 
