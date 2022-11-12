@@ -19,6 +19,7 @@ export default function Slider() {
     <Person
       key={person.id}
       sliderData={sliderData}
+      changeSlide={changeSlide}
       {...person}
     />
   );
@@ -44,11 +45,11 @@ export default function Slider() {
     });
   }
 
-  React.useEffect(() => {
-    const intervalID = setInterval(changeSlide, 5000);
+  // React.useEffect(() => {
+  //   const intervalID = setInterval(changeSlide, 5000);
 
-    return () => clearInterval(intervalID);
-  }, [sliderData]);
+  //   return () => clearInterval(intervalID);
+  // }, [sliderData]);
 
   return (
     <div className="slider">
